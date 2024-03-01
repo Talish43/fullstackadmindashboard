@@ -1,17 +1,15 @@
 import React from 'react'
-import { BrowserRouter,Routes,Route} from "react-router-dom";
-import Dashboard from '../pages/Admin/Dashboard/Dashboard';
-import Login from '../pages/Admin/Login/Login';
-import Products from '../pages/Admin/Products/Products';
+import { BrowserRouter} from "react-router-dom";
+import AdminRoutes from './AdminRoutes';
+import UserRoutes from './UserRoutes';
 const Routing = () => {
   return (
     <>
         <BrowserRouter>
-<Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/products" element={<Products />} />
-        </Routes>
+          <UserRoutes />
+        </BrowserRouter>
+        <BrowserRouter basename='admin'>
+          <AdminRoutes />
         </BrowserRouter>
 
       </>
