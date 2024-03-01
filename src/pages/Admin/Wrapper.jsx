@@ -12,6 +12,7 @@ import Navbar from '../../components/Admin/Navbar';
 const Wrapper = ({children}) => {
   const [isActive, setIsActive] = useState(false);
   const [activeNotification, setActiveNotification] = useState(false);
+  const [activeUserSettings, setActiveUserSettings] = useState(false);
   const toggleActive = () => {
     setIsActive(!isActive);
   };
@@ -23,6 +24,9 @@ const Wrapper = ({children}) => {
   
   const toggleNotifcation = () => {
     setActiveNotification(!activeNotification);
+  };
+  const toggleUserSettings = () => {
+    setActiveUserSettings(!activeUserSettings);
   };
   return (
     <>
@@ -99,11 +103,11 @@ const Wrapper = ({children}) => {
                   </Link>
                 </div>
               </li>
-              <li className={`nav-item nav-profile dropdown ${activeNotification ? 'show' : ''}`} >
-                <Link className="nav-link dropdown-toggle" href="/" data-toggle="dropdown">
+              <li className={`nav-item nav-profile dropdown ${activeUserSettings ? 'show' : ''}`} >
+                <Link className="nav-link dropdown-toggle" href="/" data-toggle="dropdown" onClick={toggleUserSettings}>
                   <img src={profileImage} alt="profile" />
                 </Link>
-                <div className="dropdown-menu dropdown-menu-right navbar-dropdown">
+                <div className={`dropdown-menu dropdown-menu-right navbar-dropdown ${activeUserSettings ? 'show' : ''}`}>
                   <Link className="dropdown-item">
                     <i className="ti-settings text-primary" />
                     Settings
